@@ -70,6 +70,9 @@ class User{
     public function isConnected(){
         mysqli_set_charset($this->Bdd,'utf8');
         echo ((bool)$_SESSION);
+        if (isset($_SESSION['user'])){
+            echo ' Bienvenue '.$_SESSION['user']['login'];
+        }
     }
 }
 ?>
