@@ -74,6 +74,37 @@ class User{
             echo ' Bienvenue '.$_SESSION['user']['login'];
         }
     }
+    
+    public function GetAllInfos(){
+        mysqli_set_charset($this->Bdd,'utf8');
+        $connected = $_SESSION['user']['login'];
+        $req = mysqli_query($this->Bdd, "SELECT * FROM utilisateurs WHERE `login`= '".$connected."'");
+        $rows = mysqli_num_rows($req);
+        if ($rows == 1){
+            $fetch = mysqli_fetch_all($req, MYSQLI_ASSOC);?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>Email</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($fetch as $data){
+                        echo'<tr><td>'.$data['login'].'</td>';
+                        echo'<td>'.$data['email'].'</td>';
+                        echo'<td>'.$data['firstname'].'</td>';
+                        echo'<td>'.$data['lastname'].'</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <?php
+        }
+    }
 }
 ?>
 

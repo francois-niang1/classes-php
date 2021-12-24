@@ -23,8 +23,9 @@ if(isset($_SESSION['user'])){
         <?php if(isset($_SESSION['user'])){echo'vous etes connecté';}if(isset($_SESSION['user'])){echo'<form action="" method="POST"><button type = "submit" name="deconnect">deconnecté</button><form>';} ?><br>
         <a href="inscription.php">Inscription</a><br>
         <a href="connexion.php">Connexion</a><br>
-        <a href="delete.php">Déconnecter et Supprimer le compte</a><br>
+        <a href="delete.php">Cliquer pour déconnecter et Supprimer le compte</a><br>
         <a href="modif.php">Modifier les infos</a><br>
+        <a href="info.php">Mes infos</a><br>
     </main>
 </body>
 </html>
